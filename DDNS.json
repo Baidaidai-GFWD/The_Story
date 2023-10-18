@@ -1,0 +1,13 @@
+{
+    "dns": "你的DNS服务商",
+    "id": "你的ID",
+    "token": "你的token",
+    "ipv4":[
+        "填入你的域名"
+    ],
+    "index4": "public",
+    "index6": "default",
+    "ttl": 600,
+    "debug": false,
+    "proxy":"如果有代理，可以通过这个"
+}

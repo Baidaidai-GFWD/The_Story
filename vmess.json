@@ -1,0 +1,66 @@
+{
+  "log": {
+    "loglevel": "info",
+    "access": "/你的log位置",
+    "error": "/你的log位置"
+  },
+  "inbounds": [
+    {
+      "listen":"0.0.0.0",
+      "port": "你的端口号",
+      "hostname": "你的域名",
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "你的UDID",
+            "alterId": 0,
+            "cipher": "aes-128-gcm",
+            "auth": "none"
+          }
+        ]
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+            "http",
+            "tls",
+            "quic"
+        ],
+        "metadataOnly": false
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "header": {
+            "type": "http",
+            "request": {
+              "version": "1.1",
+              "method": "GET",
+              "path": ["/"],
+              "headers": {
+                "Host": ["*"]
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {
+        "mux": true,
+        "header": {
+          "x-forwarded-for": "127.0.0.1"
+        }
+      }
+    }
+  ],
+  "dns":{
+    "servers":["223.6.6.6","8.8.8.8","1.1.1.1"],
+    "skipFallback": false
+  }
+}
